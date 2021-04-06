@@ -1,0 +1,50 @@
+using System;
+
+namespace zoologico
+{
+
+    public abstract class animal {
+        protected string especie;
+        protected string nombre;
+        protected double peso;
+        protected int jaula;
+
+        public void Animal(string especie,string nombre,double peso,int jaula){
+            this.especie = especie;
+            this.nombre = nombre;
+            this.peso = peso;
+            this.jaula = jaula;
+        }
+        public virtual void queClaseDeAnimalEres(){
+            Console.WriteLine("soy un mamifero llamado:{0}",nombre);
+            Console.WriteLine("de la especie:{0}",especie);
+            Console.WriteLine("peso en KG:{0}",peso);
+            Console.WriteLine("estoy en la jaula:{0}",jaula);
+        }
+    }
+    public class mamifero : animal{
+        public override void queClaseDeAnimalEres()
+        {
+            base.queClaseDeAnimalEres();
+        }
+    }
+    public class ave : animal{
+        protected string colorPlumaje;
+        protected double alturaMaximaVuelo;
+
+    }
+
+    public class insecto: animal{
+        protected Boolean vuela;
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            mamifero m = new mamifero();
+            m.Animal("leon","simba",70.8,15);
+            m.queClaseDeAnimalEres();
+        }
+    }
+}
